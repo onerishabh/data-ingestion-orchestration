@@ -15,13 +15,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "16.15.1"
+
+      - name: Install package check workind dir
+        run: mvn package && ls
+        working-directory: ${{ env.iac-dir }}
       
       - name: Install dependencies
         run: yarn install
-        working-directory: ${{ env.iac-dir }}
-      
-      - name: check workind dir
-        run: ls
         working-directory: ${{ env.iac-dir }}
       
       - name : AWS Configure
