@@ -20,6 +20,10 @@ jobs:
         run: yarn install
         working-directory: ${{ env.iac-dir }}
       
+      - name: check workind dir
+        run: ls
+        working-directory: ${{ env.iac-dir }}
+      
       - name : AWS Configure
         uses: aws-actions/configure-aws-credentials@master
         with:
