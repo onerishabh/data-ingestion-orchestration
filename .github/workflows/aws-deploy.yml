@@ -35,6 +35,12 @@ jobs:
         working-directory: ${{ env.iac-dir }}
 
       - name: Deploy Application
-        run: yarn cdk deploy --require-approval never
+        run: yarn cdk deploy DataIngestionInfraStack --require-approval never
         working-directory: ${{ env.iac-dir }}
+      
+      - name: Get URL API
+        run: aws cloudformation describe-stacks --stack-name DataIngestionInfraStack --query "Stacks[?StackName=='DataIngestionInfraStack'][].Outputs[?OutputKey=='FunctionURLAPI'].OutputValue" --no-paginate --output text
 
+      - name: Deploy Traffic
+        run: yarn cdk deploy LoadTesterInfraStack --require-approval never
+        working-directory: ${{ env.iac-dir }}
