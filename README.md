@@ -1,1 +1,1 @@
-[![.github/workflows/aws-deploy.yml](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml/badge.svg)](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml)
+[![.github/workflows/aws-deploy.yml](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml/badge.svg)](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml) ![image](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
