@@ -44,3 +44,6 @@ jobs:
       - name: Deploy Traffic
         run: yarn cdk deploy LoadTesterInfraStack --require-approval never
         working-directory: ${{ env.iac-dir }}
+      
+      - name: Upload Log Archive to S3
+        run: ls
