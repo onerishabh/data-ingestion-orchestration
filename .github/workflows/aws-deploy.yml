@@ -21,7 +21,7 @@ jobs:
       #   working-directory: ${{ env.iac-dir }}
       
       - name: Install AWS CDK
-        run: npm i aws-cdk && yarn cdk  --version
+        run: npm i aws-cdk && ls && yarn cdk  --version
         working-directory: ${{ env.iac-dir }}
       
       - name : AWS Configure
@@ -32,10 +32,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: CDK bootstrap
-        run: cdk bootstrap
+        run: yarn cdk bootstrap
         working-directory: ${{ env.iac-dir }}
 
       - name: Deploy Application
-        run: cdk deploy --require-approval never
+        run: yarn cdk deploy --require-approval never
         working-directory: ${{ env.iac-dir }}
 
