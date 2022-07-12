@@ -20,9 +20,9 @@ jobs:
         run: mvn package && ls
         working-directory: ${{ env.iac-dir }}
       
-      - name: Install dependencies
-        run: yarn install
-        working-directory: ${{ env.iac-dir }}
+      # - name: Install dependencies
+      #   run: yarn install
+      #   working-directory: ${{ env.iac-dir }}
       
       - name : AWS Configure
         uses: aws-actions/configure-aws-credentials@master
@@ -32,10 +32,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: CDK bootstrap
-        run: yarn cdk bootstrap
+        run: cdk bootstrap
         working-directory: ${{ env.iac-dir }}
 
       - name: Deploy Application
-        run: yarn cdk deploy --require-approval never
+        run: cdk deploy --require-approval never
         working-directory: ${{ env.iac-dir }}
 
