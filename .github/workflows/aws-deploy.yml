@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  aws_cdk:
+    runs-on: "ubuntu-20.04"
+
+    steps:
+      - name: Check Java, Maven
+      - run: java -version && mvn -v
+      
