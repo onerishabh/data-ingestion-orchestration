@@ -4,8 +4,34 @@ on:
 jobs:
   aws_cdk:
     runs-on: "ubuntu-20.04"
+    env:
+      iac-dir: ./data_ingestion_infra
 
     steps:
-      - name: Check Java, Maven
-        run: java -version && mvn -v
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node and NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.15.1"
+      
+      - name: Install dependencies
+        run: yarn
+        working-directory: ${{ env.iac-dir }}
+      
+      - name : AWS Configure
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: CDK bootstrap
+        run: yarn cdk bootstrap
+        working-directory: ${{ env.iac-dir }}
+
+      - name: Deploy Application
+        run: yarn cdk deploy --require-approval never
+        working-directory: ${{ env.iac-dir }}
 
