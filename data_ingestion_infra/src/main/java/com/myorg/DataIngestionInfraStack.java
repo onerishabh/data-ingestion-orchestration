@@ -28,6 +28,8 @@ import software.amazon.awscdk.services.stepfunctions.Pass;
 import software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvoke;
 
 public class DataIngestionInfraStack extends Stack {
+    public final FunctionUrl func_url;
+
     public DataIngestionInfraStack(final Construct scope, final String id) {
         this(scope, id, null);
     }
@@ -70,7 +72,7 @@ public class DataIngestionInfraStack extends Stack {
                 .role(lambda_ex_role)
                 .build();
 
-        final FunctionUrl func_url = trigger_wf.addFunctionUrl(GetURLAuthAttr());
+        this.func_url = trigger_wf.addFunctionUrl(GetURLAuthAttr());
 
         final Function check_email_lf = Function.Builder.create(this, "Check-Email")
                 .runtime(Runtime.PYTHON_3_8)
@@ -137,7 +139,7 @@ public class DataIngestionInfraStack extends Stack {
         trigger_wf.addEnvironment("TABLE", db_tb.getTableName());
 
         CfnOutput.Builder.create(this, "Function URL API")
-            .value(func_url.getUrl())
+            .value(this.func_url.getUrl())
             .build();
         
         CfnOutput.Builder.create(this, "ProjectBucketOP")
