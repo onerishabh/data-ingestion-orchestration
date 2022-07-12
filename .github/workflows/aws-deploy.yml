@@ -16,12 +16,12 @@ jobs:
         with:
           node-version: "16.15.1"
 
-      - name: Install package check workind dir
-        run: mvn package && ls
-        working-directory: ${{ env.iac-dir }}
+      # - name: Install package check workind dir
+      #   run: mvn package && ls
+      #   working-directory: ${{ env.iac-dir }}
       
       - name: Install AWS CDK
-        run: npm i aws-cdk && cdk  --version
+        run: npm i aws-cdk && yarn cdk  --version
         working-directory: ${{ env.iac-dir }}
       
       - name : AWS Configure
