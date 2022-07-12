@@ -46,4 +46,4 @@ jobs:
         working-directory: ${{ env.iac-dir }}
       
       - name: Upload Log Archive to S3
-        run: ls
+        run: cd .. && ls
