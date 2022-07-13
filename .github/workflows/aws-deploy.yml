@@ -41,24 +41,14 @@ jobs:
       - name: Get URL API
         run: aws cloudformation describe-stacks --stack-name DataIngestionInfraStack --query "Stacks[?StackName=='DataIngestionInfraStack'][].Outputs[?OutputKey=='FunctionURLAPI'].OutputValue" --no-paginate --output text
 
+      - name: Deploy Traffic Monitor Dashboard
+        run: yarn cdk deploy MonitorLoadStack --require-approval never
+        working-directory: ${{ env.iac-dir }}
+  
       - name: Deploy Traffic
         run: yarn cdk deploy LoadTesterInfraStack --require-approval never
         working-directory: ${{ env.iac-dir }}
-      
-      - uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
-      
-      - name: Upload Log Archive to S3
-        env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-        run: |
-          aws s3 cp \
-          --recursive \
-          --region us-east-1 \
-          ./build s3://dataingestioninfrastack-projectbucket7d290173-zg7ihkexgh3o
+
 
       
 
