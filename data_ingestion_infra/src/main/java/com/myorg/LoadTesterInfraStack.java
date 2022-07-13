@@ -6,7 +6,11 @@ import software.constructs.Construct;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 import software.amazon.awscdk.services.ecs.Cluster;
-import software.amazon.awscdk.services.ecs.FargateTaskDefinition;
+/*
+ * @author Rishabh Srivastava (rishabh080598@gmail.com)
+ */
+
+ import software.amazon.awscdk.services.ecs.FargateTaskDefinition;
 import software.amazon.awscdk.services.ecs.ContainerDefinitionOptions;
 import software.amazon.awscdk.services.ecs.ContainerImage;
 import software.amazon.awscdk.services.ecs.FargateService;

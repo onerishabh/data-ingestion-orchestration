@@ -1,3 +1,6 @@
+"""
+    @author Rishabh Srivastava (rishabh080598@gmail.com)
+"""
 import json
 import re
 

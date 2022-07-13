@@ -1,3 +1,6 @@
+"""
+    @author Rishabh Srivastava (rishabh080598@gmail.com)
+"""
 import json
 
 def check_pincode(pincode: str):
