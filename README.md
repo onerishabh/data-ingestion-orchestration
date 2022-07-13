@@ -11,8 +11,8 @@ The application is put through load-testing by simulating traffic using `AWS ECS
 ![ezgif com-gif-maker](./.github/images/app_demo.gif)
 
 # Table of Contents
-  1. [AWS Architecture](README.md#aws-architecture)
-  2. [Data Ingestion App](README.md#data-ingestion-app)
+  1. [AWS Architecture](#aws-architecture)
+  2. [Data Ingestion App](#data-ingestion-app)
   3. [Traffic Simulation](README.md#traffic-simulation)
   4. [Traffic Monitor Dashboard](README.md#traffic-monitor-dashboard)
   5. [Infrastructure-as-Code](README.md#infrastructure-as-code)
