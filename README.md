@@ -54,4 +54,4 @@ This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`
 Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
 
 # Running The Application
-`Fork` this respoitory and updat secrets with your `AWS` credentials.  
+`Fork` this respoitory and update secrets with your `AWS` credentials.  
