@@ -10,6 +10,15 @@ The application is put through load-testing by simulating traffic using `AWS ECS
 
 ![ezgif com-gif-maker](./.github/images/app_demo.gif)
 
+# Table of Contents
+  1. [AWS Architecture](README.md#aws-architecture)
+  2. [Data Ingestion App](README.md#data-ingestion-app)
+  3. [Traffic Simulation](README.md#traffic-simulation)
+  4. [Traffic Monitor Dashboard](README.md#traffic-monitor-dashboard)
+  5. [Infrastructure-as-Code](README.md#infrastructure-as-code)
+  6. [Github Actions](README.md#github-actions)
+  7. [Running The Application](README.md#running-the-application)
+
 # AWS Architecture
 
 ![AWS Architecture](./.github/images/AWS_architecture.png)
@@ -40,3 +49,9 @@ This is an `AWS CloudWatch Dashboard` meant to track load on the application.
 The entire application has three `AWS Cloudformation` stacks: `DataIngestionInfraStack`, `LoadTesterInfraStack`, `MonitorLoadStack`. All three cloudformation stacks are deployed to `AWS` using [`AWS Cloud Development Kit`](https://aws.amazon.com/cdk/). 
 
 This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`, `java`, `mvn` are installed on software release machine. 
+
+# Github Actions
+Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
+
+# Running The Application
+`Fork` this respoitory and updated secrets with your `AWS` credentials.  
