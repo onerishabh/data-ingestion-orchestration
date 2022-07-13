@@ -155,6 +155,9 @@ public class DataIngestionInfraStack extends Stack {
     }
 
     private PolicyStatement GetPolicyStatementSecretsManager() {
+        /*
+         * A custom policy that allow resources to access secretsmanager with data-ingestion in the name
+         */
         return PolicyStatement.Builder
                 .create()
                 .resources(Arrays.asList("arn:aws:secretsmanager:*:*:secret:*data-ingestion*"))
