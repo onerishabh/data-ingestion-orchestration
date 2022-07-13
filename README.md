@@ -6,6 +6,32 @@ This is a simple application that exposes `AWS Lambda Function` as a public URL.
 
 The application traffic is monitored using `AWS Cloudwatch Dashboard` which tracks the `AWS Lambda Function` invocations, durations, error/success rates and `AWS Account` billings as four independent widgets.
 
-The application is put through load-testing by simulating traffic using `AWS ECS Farget` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script. The traffic can be monitored safely through `AWS Cloudwatch Dashboard`. 
+The application is put through load-testing by simulating traffic using `AWS ECS Fargate` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script. The traffic can be monitored safely through `AWS Cloudwatch Dashboard`. 
 
 ![ezgif com-gif-maker](./.github/images/app_demo.gif)
+
+# AWS Architecture
+
+![AWS Architecture](./.github/images/AWS_architecture.png)
+
+# Data Ingestion App
+
+The application is designed to ingest user information using query string paramaters. If query string paramters are in correct format, they are ingested into an AWS DynamoDB Table. The acceptable query string paramaters with data formats are mentioned below. 
+```
+- user_name: No pattern check. 
+- email: Must be of (alphabet)+(alphabet|digit)*\@(alphabet|digit)+\.com
+- pincode: Must be numeric with length between 4 and 6 (both inclusive)
+
+Example : https://sd373c3bj3zedsxsjuszrfgjoy0gzceu.lambda-url.us-east-1.on.aws/?user_name=Rishabh&email=rishabh@gmail.com&pincode=3055
+
+To list data points in table:
+    https://sd373c3bj3zedsxsjuszrfgjoy0gzceu.lambda-url.us-east-1.on.aws/
+```
+
+# Traffic Simulation
+There is one `AWS ECS Cluster` service which is spun to run an `AWS ECS Fargate` service. There are two tasks running concurrrently which hit `https://$FUNC_URL/?user_name=user_name=Rishabh&email=avc@gmail.com&pincode=3055` once every second each. The tasks are running on custom `Alpine` [docker-image](./load_testing/Dockerfile). 
+
+# Traffic Monitor Dashboard
+This is an `AWS CloudWatch Dashboard` meant to track load on the application. 
+
+![](./.github/images/trafficDashboard.PNG)
