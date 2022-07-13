@@ -6,4 +6,6 @@ This is a simple application that exposes `AWS Lambda Function` as a public URL.
 
 The application traffic is monitored using `AWS Cloudwatch Dashboard` which tracks the `AWS Lambda Function` invocations, durations, error/success rates and `AWS Account` billings as four independent widgets.
 
-The application is put through load-testing by simulating traffic using `AWS ECS Farget` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script.
+The application is put through load-testing by simulating traffic using `AWS ECS Farget` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script. The traffic can be monitored safely through `AWS Cloudwatch Dashboard`. 
+
+![ezgif com-gif-maker](https://raw.githubusercontent.com/onrishabh/data-ingestion-orchestration/main/.github/images/app_demo.gif)
