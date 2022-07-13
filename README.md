@@ -52,6 +52,7 @@ This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`
 
 # Github Actions
 Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
+Go to Actions>> .github/workflows/aws-deploy.yml >> Run Workflow
 
 # Running The Application
 `Fork` this respoitory and update secrets with your `AWS` credentials.  
