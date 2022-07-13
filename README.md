@@ -42,6 +42,9 @@ There is one `AWS ECS Cluster` service which is spun to run an `AWS ECS Fargate`
 
 # Traffic Monitor Dashboard
 This is an `AWS CloudWatch Dashboard` meant to track load on the application. 
+```
+Note : The dip in invocations, durations and error/success rates are dure to completeion of load testing and reducing traffic on the application
+```
 
 ![](./.github/images/trafficDashboard.PNG)
 
