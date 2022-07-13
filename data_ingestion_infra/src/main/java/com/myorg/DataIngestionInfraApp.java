@@ -1,7 +1,6 @@
 package com.myorg;
 
 import software.amazon.awscdk.App;
-import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 
 
@@ -14,6 +13,9 @@ public class DataIngestionInfraApp {
         
         new LoadTesterInfraStack(app, "LoadTesterInfraStack", StackProps.builder()
                 .build(), appStack.func_url.getUrl());
+        
+        new MonitorLoadStack(app, "MonitorLoadStack", StackProps.builder()
+                .build(), appStack.entry_function.getFunctionName());
 
         app.synth();
     }
