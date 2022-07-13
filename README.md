@@ -8,4 +8,4 @@ The application traffic is monitored using `AWS Cloudwatch Dashboard` which trac
 
 The application is put through load-testing by simulating traffic using `AWS ECS Farget` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script. The traffic can be monitored safely through `AWS Cloudwatch Dashboard`. 
 
-![ezgif com-gif-maker](https://raw.githubusercontent.com/onrishabh/data-ingestion-orchestration/main/.github/images/app_demo.gif)
+![ezgif com-gif-maker](https://raw.githubusercontent.com/onerishabh/data-ingestion-orchestration/main/.github/images/app_demo.gif)
