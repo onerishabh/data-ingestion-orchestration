@@ -35,3 +35,8 @@ There is one `AWS ECS Cluster` service which is spun to run an `AWS ECS Fargate`
 This is an `AWS CloudWatch Dashboard` meant to track load on the application. 
 
 ![](./.github/images/trafficDashboard.PNG)
+
+# Infrastructure-as-Code
+The entire application has three `AWS Cloudformation` stacks: `DataIngestionInfraStack`, `LoadTesterInfraStack`, `MonitorLoadStack`. All three cloudformation stacks are deployed to `AWS` using [`AWS Cloud Development Kit`](https://aws.amazon.com/cdk/). 
+
+This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`, `java`, `mvn` are installed on software release machine. 
