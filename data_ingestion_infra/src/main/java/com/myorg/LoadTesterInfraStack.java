@@ -26,7 +26,7 @@ public class LoadTesterInfraStack extends Stack{
                     .build();
         task_def.addContainer("LoadTester", ContainerDefinitionOptions.builder()
                     .image(ContainerImage.fromAsset("../load_testing"))
-                    .build()).addEnvironment("URL", func_url);;
+                    .build()).addEnvironment("URL", func_url+"?user_name=Rishabh&email=avc@gmail.com&pincode=3055");;
 
         final FargateService ecs_fargate = FargateService.Builder.create(this, "LoadTesterService")
                     .cluster(ecs_cluster)
