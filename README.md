@@ -1,5 +1,3 @@
-AWS Data Ingestion Orchestration
-********************************************************************************
+# AWS Data Ingestion Orchestration
 
-.. image:: https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml/badge.svg?branch=master
-    :target: https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml
+[![.github/workflows/aws-deploy.yml](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml/badge.svg)](https://github.com/onerishabh/data-ingestion-orchestration/actions/workflows/aws-deploy.yml)
