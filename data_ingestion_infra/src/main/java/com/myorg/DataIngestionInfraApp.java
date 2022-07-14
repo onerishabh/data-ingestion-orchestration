@@ -15,8 +15,9 @@ public class DataIngestionInfraApp {
         DataIngestionInfraStack appStack = new DataIngestionInfraStack(app, "DataIngestionInfraStack", StackProps.builder()
                 .build());
         
+        int number_of_tasks = 2;
         new LoadTesterInfraStack(app, "LoadTesterInfraStack", StackProps.builder()
-                .build(), appStack.func_url.getUrl());
+                .build(), appStack.func_url.getUrl(), number_of_tasks);
         
         new MonitorLoadStack(app, "MonitorLoadStack", StackProps.builder()
                 .build(), appStack.entry_function.getFunctionName());

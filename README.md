@@ -4,6 +4,8 @@
 
 This is a simple application that exposes `AWS Lambda Function` as a public URL. The URL is used to ingest data to an `AWS DynamoDB Table` and list items in the same table. Data is recieved via query string parameters from the URL and validated using an `AWS Statemachine`. If data is in correct format then it is ingested otherwise reponse code `400` is shared as a `PUT` response via the `AWS Lambda Function`. Data processing is done using `Python` based `AWS Lambda Function`.
 
+![aws-app](./.github/images/aws_app.gif)
+
 The application traffic is monitored using `AWS Cloudwatch Dashboard` which tracks the `AWS Lambda Function` invocations, durations, error/success rates and `AWS Account` billings as four independent widgets.
 
 The application is put through load-testing by simulating traffic using `AWS ECS Fargate` which runs **2** instances of `AWS ECS Tasks` *(this adds costs exponentially, so check with your organization or sandbox provider)* running custom `Docker` image. Each task hits the URL endpoint once every second using a simple shell script. The traffic can be monitored safely through `AWS Cloudwatch Dashboard`. 
@@ -11,13 +13,29 @@ The application is put through load-testing by simulating traffic using `AWS ECS
 ![ezgif com-gif-maker](./.github/images/app_demo.gif)
 
 # Table of Contents
-  1. [AWS Architecture](#aws-architecture)
-  2. [Data Ingestion App](#data-ingestion-app)
-  3. [Traffic Simulation](#traffic-simulation)
-  4. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
-  5. [Infrastructure-as-Code](#infrastructure-as-code)
-  6. [Github Actions](#github-actions)
-  7. [Running The Application](#running-the-application)
+  1. [Running The Application](#running-the-application)
+  2. [Github Actions](#github-actions)
+  3. [AWS Architecture](#aws-architecture)
+  4. [Data Ingestion App](#data-ingestion-app)
+  5. [Traffic Simulation](#traffic-simulation)
+  6. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
+  7. [Infrastructure-as-Code](#infrastructure-as-code)
+
+# Running The Application Locally
+
+## Prerequisites
+* `Java` : `java -version`
+* `Maven` : `mvn --version`
+* `Node Package Manager` : `npm --version`
+* `aws-cdk` : `npm info aws-cdk version`
+* `aws-cli` : `aws-cli --version`
+
+If
+
+# Github Actions
+Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
+
+Go to Actions>> .github/workflows/aws-deploy.yml >> Run Workflow
 
 # AWS Architecture
 
@@ -52,10 +70,4 @@ Note : The dip in invocations, durations and error/success rates are dure to com
 The entire application has three `AWS Cloudformation` stacks: `DataIngestionInfraStack`, `LoadTesterInfraStack`, `MonitorLoadStack`. All three cloudformation stacks are deployed to `AWS` using [`AWS Cloud Development Kit`](https://aws.amazon.com/cdk/). 
 
 This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`, `java`, `mvn` are installed on software release machine. 
-
-# Github Actions
-Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
-Go to Actions>> .github/workflows/aws-deploy.yml >> Run Workflow
-
-# Running The Application
-`Fork` this respoitory and update secrets with your `AWS` credentials.  
+  

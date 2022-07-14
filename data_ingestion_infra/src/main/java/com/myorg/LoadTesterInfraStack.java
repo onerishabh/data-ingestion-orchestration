@@ -17,10 +17,11 @@ import software.amazon.awscdk.services.ecs.FargateService;
 
 public class LoadTesterInfraStack extends Stack{
     public LoadTesterInfraStack(final Construct scope, final String id) {
-        this(scope, id, null, null);
+        this(scope, id, null, null, 2);
     }
 
-    public LoadTesterInfraStack(final Construct scope, final String id, final StackProps props, final String func_url) {
+    public LoadTesterInfraStack(final Construct scope, final String id, final StackProps props, 
+                                        final String func_url, int number_of_tasks) {
         super(scope, id, props);
 
         final Cluster ecs_cluster = Cluster.Builder.create(this, "ClusterService")
@@ -35,7 +36,7 @@ public class LoadTesterInfraStack extends Stack{
         final FargateService ecs_fargate = FargateService.Builder.create(this, "LoadTesterService")
                     .cluster(ecs_cluster)
                     .taskDefinition(task_def)
-                    .desiredCount(2)
+                    .desiredCount(number_of_tasks)
                     .build();
 
     }
