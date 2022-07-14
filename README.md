@@ -21,7 +21,7 @@ The application is put through load-testing by simulating traffic using `AWS ECS
   6. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
   7. [Infrastructure-as-Code](#infrastructure-as-code)
 
-# Running The Application Locally
+# Running The Application
 
 ## Prerequisites
 * `Java` : `java -version`
@@ -30,7 +30,11 @@ The application is put through load-testing by simulating traffic using `AWS ECS
 * `aws-cdk` : `npm info aws-cdk version`
 * `aws-cli` : `aws-cli --version`
 
-If
+`aws-cli` should be configured correctly with access key and secret access key or correct keys should be supplied to [`aws-actions/configure-aws-credentials@master`](.github/workflows/aws-deploy.yml). 
+
+The privileges of the user is primal for deploying the application to AWS. The `AWS IAM User` should have appropriate privileges for `AWS Cloudformation`. There should be an appropriate `AWS IAM Role` for deployment using CFT. 
+
+For the context of this project, an admin `AWS IAM User` is created and `AdministratorAccess`, which is an `AWS IAM Policy` managed by `AWS` is attached to it. 
 
 # Github Actions
 Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid credentials.
