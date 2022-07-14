@@ -21,7 +21,7 @@ The application is put through load-testing by simulating traffic using `AWS ECS
   7. [Traffic Simulation](#traffic-simulation)
   8. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
   9. [Infrastructure-as-Code](#infrastructure-as-code)
-  10. [Future Plans/Inprovements](#future-plansinprovements)
+  10. [Future Plans/Improvements](#future-plansimprovements)
 
 # Running The Application
 
@@ -102,7 +102,7 @@ The entire application has three `AWS Cloudformation` stacks: `DataIngestionInfr
 
 This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`, `java`, `mvn` are installed on software release machine. 
 
-# Future Plans/Inprovements
+# Future Plans/Improvements
 - [ ] Add a new Github Action that waits for a specifc amount of time after execution of aws-deploy and then tears down the LoadTesterInfraStack automatically. After all, the load testing is done only for a period of time. Current, this tear down process is manual.
 
 - [ ] If only one of `email` or `pincode` is accpeted, then send the input to the admin asking for approval of the data point. This involves a callback state in Stepfunction. The statemachine waits until the callback is completed. The wait for callback can be anywhere upto 1 year for standard workflows. 
