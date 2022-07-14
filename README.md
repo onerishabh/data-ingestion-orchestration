@@ -20,6 +20,7 @@ The application is put through load-testing by simulating traffic using `AWS ECS
   5. [Traffic Simulation](#traffic-simulation)
   6. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
   7. [Infrastructure-as-Code](#infrastructure-as-code)
+  8. [Future Plans](#future-plans)
 
 # Running The Application
 
@@ -98,4 +99,12 @@ Note : The dip in invocations, durations and error/success rates are dure to com
 The entire application has three `AWS Cloudformation` stacks: `DataIngestionInfraStack`, `LoadTesterInfraStack`, `MonitorLoadStack`. All three cloudformation stacks are deployed to `AWS` using [`AWS Cloud Development Kit`](https://aws.amazon.com/cdk/). 
 
 This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`, `java`, `mvn` are installed on software release machine. 
-  
+
+# Future Plans
+- [ ] Add a new Github Action that waits for a specifc amount of time after execution of aws-deploy and then tears down the LoadTesterInfraStack automatically. After all, the load testing is done only for a period of time. Current, this tear down process is manual.
+
+- [ ] If only one of `email` or `pincode` is accpeted, then send the input to the admin asking for approval of the data point. This involves a callback state in Stepfunction. The statemachine waits until the callback is completed. The wait for callback can be anywhere upto 1 year for standard workflows. 
+
+- [ ] A good first issue would be to update [pinger.sh](load_testing/pinger.sh) to input random but valid data points. The data points can be generated in same shell script using regex. Please feel free to contact me about more details on this. 
+
+- [ ] Alternatively, an `AWS Kinsesis DataStream` can be setup to put `AWS DynamoDB Table` under load testing. New code for for iac of kinesis data stream should be added in [LoadTesterInfraStack.java](data_ingestion_infra/src/main/java/com/myorg/LoadTesterInfraStack.java) 
