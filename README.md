@@ -15,12 +15,13 @@ The application is put through load-testing by simulating traffic using `AWS ECS
 # Table of Contents
   1. [Running The Application](#running-the-application)
   2. [Github Actions](#github-actions)
-  3. [AWS Architecture](#aws-architecture)
-  4. [Data Ingestion App](#data-ingestion-app)
-  5. [Traffic Simulation](#traffic-simulation)
-  6. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
-  7. [Infrastructure-as-Code](#infrastructure-as-code)
-  8. [Future Plans](#future-plans)
+  4. [Deploying from Local System](#deploying-from-local-system)
+  5. [AWS Architecture](#aws-architecture)
+  6. [Data Ingestion App](#data-ingestion-app)
+  7. [Traffic Simulation](#traffic-simulation)
+  8. [Traffic Monitor Dashboard](#traffic-monitor-dashboard)
+  9. [Infrastructure-as-Code](#infrastructure-as-code)
+  10. [Future Plans](#future-plans)
 
 # Running The Application
 
