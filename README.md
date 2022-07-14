@@ -41,6 +41,30 @@ Make sure, `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are created/updated with valid 
 
 Go to Actions>> .github/workflows/aws-deploy.yml >> Run Workflow
 
+# Deploying from Local System
+
+```
+  cd data_ingestion_infra/
+
+  # Needs to be run intially. Subsequent executions will not have any impact.
+  cdk bootstrap 
+
+  # Deploy Application
+  cdk deploy DataIngestionInfraStack --require-approval never
+
+  # Get Lambda API URL
+  aws cloudformation describe-stacks \
+    --stack-name DataIngestionInfraStack \
+    --query "Stacks[?StackName=='DataIngestionInfraStack'][].Outputs[?OutputKey=='FunctionURLAPI'].OutputValue" \
+    --no-paginate --output text
+
+  # Deploy Traffic
+  cdk deploy LoadTesterInfraStack --require-approval never
+
+  # Deploy Monitor Dashboard 
+  cdk deploy MonitorLoadStack --require-approval never
+```
+
 # AWS Architecture
 
 ![AWS Architecture](./.github/images/AWS_architecture.png)
