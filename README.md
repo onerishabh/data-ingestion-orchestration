@@ -109,4 +109,6 @@ This `cdk` application is a `Java` based. Make sure `node`, `aws-cdk`, `aws-cli`
 
 - [ ] A good first issue would be to update [pinger.sh](load_testing/pinger.sh) to input random but valid data points. The data points can be generated in same shell script using regex. Please feel free to contact me about more details on this. 
 
-- [ ] Alternatively, an `AWS Kinsesis DataStream` can be setup to put `AWS DynamoDB Table` under load testing. New code for iac of kinesis data stream should be added in [LoadTesterInfraStack.java](data_ingestion_infra/src/main/java/com/myorg/LoadTesterInfraStack.java) 
+- [ ] Alternatively, an `AWS Kinsesis DataStream` can be setup to put `AWS DynamoDB Table` under load testing. New code for iac of kinesis data stream should be added in [LoadTesterInfraStack.java](data_ingestion_infra/src/main/java/com/myorg/LoadTesterInfraStack.java).
+
+- [ ] Also a another good first issue would be to add an HTML template to render list of entries as single cards on a webpage. The HTML template would be used by [triggerWorkflow](lambda/triggerWorkflow/handler.py). 
