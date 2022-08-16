@@ -12,6 +12,8 @@ public class DataIngestionInfraApp {
     public static void main(final String[] args) {
         App app = new App();
 
+        new NetworkStack(app, "NetworkStack");
+
         DataIngestionInfraStack appStack = new DataIngestionInfraStack(app, "DataIngestionInfraStack", StackProps.builder()
                 .build());
         
