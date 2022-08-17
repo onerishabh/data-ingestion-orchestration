@@ -23,6 +23,8 @@ public class DataIngestionInfraApp {
         
         new MonitorLoadStack(app, "MonitorLoadStack", StackProps.builder()
                 .build(), appStack.entry_function.getFunctionName());
+        
+        new MSKClusterStack(app, "MSKClusterStack");
 
         app.synth();
     }
